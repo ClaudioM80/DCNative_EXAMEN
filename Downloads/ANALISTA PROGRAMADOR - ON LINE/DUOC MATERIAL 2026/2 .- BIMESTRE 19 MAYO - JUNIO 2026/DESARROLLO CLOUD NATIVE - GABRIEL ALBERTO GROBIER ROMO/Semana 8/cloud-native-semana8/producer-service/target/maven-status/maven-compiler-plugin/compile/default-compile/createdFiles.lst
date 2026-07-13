@@ -1,0 +1,6 @@
+cl/duoc/cloudnative/producer/config/RabbitMQConfig.class
+cl/duoc/cloudnative/producer/service/GuiaService.class
+cl/duoc/cloudnative/producer/controller/GuiaController.class
+cl/duoc/cloudnative/producer/ProducerApplication.class
+cl/duoc/cloudnative/producer/model/PedidoCreadoEvent.class
+cl/duoc/cloudnative/producer/model/GuiaRequest.class

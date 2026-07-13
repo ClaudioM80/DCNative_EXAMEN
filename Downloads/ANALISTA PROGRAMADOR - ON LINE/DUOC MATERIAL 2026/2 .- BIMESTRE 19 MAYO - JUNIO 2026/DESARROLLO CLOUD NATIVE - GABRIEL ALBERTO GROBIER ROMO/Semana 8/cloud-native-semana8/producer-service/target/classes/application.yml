@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: producer-service
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin123
+
+server:
+  port: 8081
+
+app:
+  rabbitmq:
+    exchange: pedidos.exchange
+    routing-key: pedidos.creado

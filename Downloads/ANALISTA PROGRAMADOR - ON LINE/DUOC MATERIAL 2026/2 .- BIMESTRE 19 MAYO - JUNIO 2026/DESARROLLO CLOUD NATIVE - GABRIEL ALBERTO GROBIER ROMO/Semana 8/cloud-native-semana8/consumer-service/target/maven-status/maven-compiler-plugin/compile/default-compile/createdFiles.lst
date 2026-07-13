@@ -1,0 +1,8 @@
+cl/duoc/cloudnative/consumer/repository/GuiaRepository.class
+cl/duoc/cloudnative/consumer/ConsumerApplication.class
+cl/duoc/cloudnative/consumer/repository/GuiaFallidaRepository.class
+cl/duoc/cloudnative/consumer/listener/PedidoConsumerListener.class
+cl/duoc/cloudnative/consumer/model/Guia.class
+cl/duoc/cloudnative/consumer/config/RabbitMQConfig.class
+cl/duoc/cloudnative/consumer/model/PedidoCreadoEvent.class
+cl/duoc/cloudnative/consumer/model/GuiaFallida.class
