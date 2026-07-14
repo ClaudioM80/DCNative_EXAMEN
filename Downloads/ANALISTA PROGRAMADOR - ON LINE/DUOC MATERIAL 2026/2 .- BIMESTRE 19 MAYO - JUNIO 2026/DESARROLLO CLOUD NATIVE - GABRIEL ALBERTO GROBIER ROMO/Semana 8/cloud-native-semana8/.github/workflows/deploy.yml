@@ -57,5 +57,5 @@ jobs:
             cd ~/cloud-native-semana8
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/producer-service:latest
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/consumer-service:latest
-            docker-compose down
-            docker-compose up -d
+            docker compose down
+            docker compose up -d
