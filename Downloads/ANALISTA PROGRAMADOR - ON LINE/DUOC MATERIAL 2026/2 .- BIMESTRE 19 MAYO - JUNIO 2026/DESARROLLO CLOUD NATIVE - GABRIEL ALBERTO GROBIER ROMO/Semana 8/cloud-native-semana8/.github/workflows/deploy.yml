@@ -1,3 +1,6 @@
+
+# Forzando actualización del script de despliegue - 2026-07-14
+
 name: CI/CD Pipeline
 
 on:
