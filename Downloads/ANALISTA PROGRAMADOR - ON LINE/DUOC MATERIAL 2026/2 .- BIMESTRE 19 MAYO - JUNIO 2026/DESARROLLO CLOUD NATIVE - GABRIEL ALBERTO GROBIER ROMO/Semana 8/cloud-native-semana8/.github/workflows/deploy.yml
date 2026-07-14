@@ -1,6 +1,4 @@
-
-# Forzando actualización del script de despliegue - 2026-07-14
-
+# Forzando actualización definitiva del script de despliegue
 name: CI/CD Pipeline
 
 on:
@@ -82,7 +80,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            # Verificar e instalar docker-compose si no existe
+            # Verificar e instalar docker si no existe
             if ! command -v docker &> /dev/null; then
               echo "docker no encontrado, instalando..."
               sudo apt update
