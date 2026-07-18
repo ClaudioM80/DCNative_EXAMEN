@@ -1,0 +1,6 @@
+/Users/claudiomorales/Desktop/cursos-plataforma/inscripcion-service/src/main/java/cl/duoc/cloudnative/inscripcion/InscripcionApplication.java
+/Users/claudiomorales/Desktop/cursos-plataforma/inscripcion-service/src/main/java/cl/duoc/cloudnative/inscripcion/config/RabbitMQConfig.java
+/Users/claudiomorales/Desktop/cursos-plataforma/inscripcion-service/src/main/java/cl/duoc/cloudnative/inscripcion/listener/InscripcionListener.java
+/Users/claudiomorales/Desktop/cursos-plataforma/inscripcion-service/src/main/java/cl/duoc/cloudnative/inscripcion/model/Inscripcion.java
+/Users/claudiomorales/Desktop/cursos-plataforma/inscripcion-service/src/main/java/cl/duoc/cloudnative/inscripcion/model/InscripcionEvent.java
+/Users/claudiomorales/Desktop/cursos-plataforma/inscripcion-service/src/main/java/cl/duoc/cloudnative/inscripcion/repository/InscripcionRepository.java

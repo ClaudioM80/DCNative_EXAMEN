@@ -1,0 +1,5 @@
+cl/duoc/cloudnative/curso/config/RabbitMQConfig.class
+cl/duoc/cloudnative/curso/model/Curso.class
+cl/duoc/cloudnative/curso/CursoApplication.class
+cl/duoc/cloudnative/curso/model/Inscripcion.class
+cl/duoc/cloudnative/curso/controller/CursoController.class

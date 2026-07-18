@@ -1,0 +1,5 @@
+/Users/claudiomorales/Desktop/cursos-plataforma/curso-service/src/main/java/cl/duoc/cloudnative/curso/CursoApplication.java
+/Users/claudiomorales/Desktop/cursos-plataforma/curso-service/src/main/java/cl/duoc/cloudnative/curso/config/RabbitMQConfig.java
+/Users/claudiomorales/Desktop/cursos-plataforma/curso-service/src/main/java/cl/duoc/cloudnative/curso/controller/CursoController.java
+/Users/claudiomorales/Desktop/cursos-plataforma/curso-service/src/main/java/cl/duoc/cloudnative/curso/model/Curso.java
+/Users/claudiomorales/Desktop/cursos-plataforma/curso-service/src/main/java/cl/duoc/cloudnative/curso/model/Inscripcion.java
