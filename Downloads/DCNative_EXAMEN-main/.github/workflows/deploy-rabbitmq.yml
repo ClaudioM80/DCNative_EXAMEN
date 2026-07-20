@@ -1,0 +1,30 @@
+name: Deploy RabbitMQ
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy-rabbitmq:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy RabbitMQ to EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ubuntu/app || mkdir -p /home/ubuntu/app && cd /home/ubuntu/app
+            docker stop rabbitmq 2>/dev/null || true
+            docker rm rabbitmq 2>/dev/null || true
+            docker run -d --name rabbitmq \
+              -p 5672:5672 -p 15672:15672 \
+              -e RABBITMQ_DEFAULT_USER=admin \
+              -e RABBITMQ_DEFAULT_PASS=admin123 \
+              rabbitmq:3-management-alpine
+            echo "✅ RabbitMQ desplegado"

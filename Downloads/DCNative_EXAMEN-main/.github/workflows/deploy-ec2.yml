@@ -1,0 +1,57 @@
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build with Maven
+        run: |
+          cd api-gateway && mvn clean package -DskipTests
+          cd ../curso-service && mvn clean package -DskipTests
+          cd ../inscripcion-service && mvn clean package -DskipTests
+
+      - name: Deploy to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "api-gateway/target/api-gateway-1.0.0.jar,curso-service/target/curso-service-1.0.0.jar,inscripcion-service/target/inscripcion-service-1.0.0.jar"
+          target: "/home/ubuntu/app/"
+          strip_components: 2
+
+      - name: Restart services on EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ubuntu/app
+            sudo pkill -f api-gateway-1.0.0.jar || true
+            sudo pkill -f curso-service-1.0.0.jar || true
+            sudo pkill -f inscripcion-service-1.0.0.jar || true
+            chmod +x *.jar
+            export AZURE_CLIENT_ID="${{ secrets.AZURE_CLIENT_ID }}"
+            export AZURE_CLIENT_SECRET="${{ secrets.AZURE_CLIENT_SECRET }}"
+            export AZURE_TENANT_ID="${{ secrets.AZURE_TENANT_ID }}"
+            export AZURE_REDIRECT_URI="http://${{ secrets.EC2_HOST }}:8888/login/oauth2/code/azure"
+            nohup java -jar api-gateway-1.0.0.jar > gateway.log 2>&1 &
+            nohup java -jar curso-service-1.0.0.jar > curso.log 2>&1 &
+            nohup java -jar inscripcion-service-1.0.0.jar > inscripcion.log 2>&1 &
+            echo "✅ Servicios iniciados"

@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: curso-service
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 8081
+
+app:
+  rabbitmq:
+    exchange: curso.exchange
+    routing-key: curso.routingkey
